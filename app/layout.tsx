@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Vazirmatn({ subsets: ["arabic", "latin"] });
 
 export const metadata: Metadata = {
-  title: "Phone Shop %s",
+  title: "Phone Shop",
   description: "Phone Shop",
 };
 
