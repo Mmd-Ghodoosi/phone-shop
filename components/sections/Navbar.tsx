@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaPhoneAlt } from "react-icons/fa";
 
 import {
   AppBar,
@@ -26,7 +26,7 @@ const Navbar = () => {
         <Box>
           <Typography variant="h5">
             <Link href="/" style={{ textDecoration: "none", color: "black" }}>
-              Phone Shop
+              <FaPhoneAlt />
             </Link>
           </Typography>
         </Box>

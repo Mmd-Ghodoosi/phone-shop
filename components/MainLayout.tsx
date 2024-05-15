@@ -1,8 +1,16 @@
 import React from "react";
-import Navbar from "./Navbar/Navbar";
+import Navbar from "./sections/Navbar";
+import Carousel from "./sections/Carousel";
+
+
 
 const MainLayout = () => {
-  return <Navbar />;
+  return (
+    <section>
+      <Navbar />
+      <Carousel />
+    </section>
+  );
 };
 
 export default MainLayout;
