@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
 export const DarkTheme = createTheme({
-  direction: "ltr",
+  direction: "rtl",
   palette: { mode: "dark" },
   typography: {
     fontFamily: "vazir",
@@ -15,7 +15,7 @@ export const DarkTheme = createTheme({
   },
 });
 export const LightTheme = createTheme({
-  direction: "ltr",
+  direction: "rtl",
   palette: { mode: "light" },
 
   typography: {

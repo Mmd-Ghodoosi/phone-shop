@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import iphone from "../../assets/iphone/Iphone-slider.jpg";
 
@@ -14,7 +14,8 @@ const Carousel = () => {
   return (
     <Swiper
       style={{
-        marginTop: 200,
+        position: "relative",
+        top: 200,
       }}
       autoHeight={true}
       spaceBetween={30}
@@ -30,7 +31,11 @@ const Carousel = () => {
       className="mySwiper"
     >
       <SwiperSlide style={{ display: "flex", justifyContent: "center" }}>
-        <Image src={iphone} alt="s" style={{ width: "100%", height: "50vh" }} />
+        <Image
+          src={iphone}
+          alt="iphone"
+          style={{ width: "100%", height: "50vh" }}
+        />
       </SwiperSlide>
       <SwiperSlide
         style={{
@@ -39,12 +44,16 @@ const Carousel = () => {
           alignItems: "center",
         }}
       >
-        <Image src={iphone} alt="s" style={{ width: "100%", height: "50vh" }} />
+        <Image
+          src={iphone}
+          alt="iphone"
+          style={{ width: "100%", height: "50vh" }}
+        />
       </SwiperSlide>
       <SwiperSlide style={{ display: "flex", justifyContent: "center" }}>
         <Image
           src={iphone}
-          alt="s"
+          alt="iphone"
           style={{
             width: "100%",
             height: "50vh",
