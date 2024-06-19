@@ -2,51 +2,31 @@ import React from "react";
 import Link from "next/link";
 
 import { FaSearch, FaPhoneAlt } from "react-icons/fa";
-
-import {
-  AppBar,
-  Avatar,
-  Box,
-  Toolbar,
-  Typography,
-  TextField,
-  Button,
-} from "@mui/material";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
   return (
-    <AppBar position="fixed" sx={{ bgcolor: "#ccc" }}>
-      <Toolbar
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        {/* //! site name */}
-        <Box>
-          <Typography variant="h5">
-            <Link href="/" style={{ textDecoration: "none", color: "black" }}>
-              <FaPhoneAlt />
-            </Link>
-          </Typography>
-        </Box>
-        {/* //! search  */}
-        <Box display={"flex"}>
-          <TextField variant="standard" placeholder="جستوجو" dir="rtl" />
-
-          <Button type="submit" variant="text" sx={{ borderRadius: 50 }}>
-            <FaSearch />
-          </Button>
-        </Box>
-
-        {/* //! profile avatar */}
-        <Box>
-          <Link href={`/profile/id`}>
-            <Avatar sx={{ bgcolor: "grey" }} />
-          </Link>
-        </Box>
-      </Toolbar>
-    </AppBar>
+    <section className="flex justify-between items-center bg-gray-400 w-full h-12">
+      <div className="pl-2 text-xl">
+        <Link href="/" style={{ textDecoration: "none", color: "black" }}>
+          <FaPhoneAlt />{" "}
+        </Link>
+      </div>
+      <div className="flex mt-2 ">
+        <input
+          type="text"
+          name=""
+          id=""
+          className="border-b border-b-black bg-gray-400   focus:outline-none"
+        />
+        <FaSearch className="cursor-pointer" />
+      </div>
+      <div className="pr-2   ">
+        <Link href={`/profile/id`}>
+          <CgProfile className="text-4xl" />
+        </Link>
+      </div>
+    </section>
   );
 };
 

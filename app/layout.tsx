@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 
-
 const inter = Vazirmatn({ subsets: ["arabic", "latin"] });
 
 export const metadata: Metadata = {
@@ -17,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <script src="https://cdn.tailwindcss.com"></script>
+      </body>
     </html>
   );
 }
