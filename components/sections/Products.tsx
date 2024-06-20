@@ -2,16 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-import Grid from "@mui/material/Unstable_Grid2";
 import { getAllProducts } from "../../constant/service";
 
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
 import Image from "next/image";
 
 const Products = () => {
@@ -64,57 +56,6 @@ const Products = () => {
         ))}
       </section>
     </fieldset>
-    //<Grid
-    //       xs={12}
-    //       sm={6}
-    //       md={6}
-    //       lg={4}
-    //       xl={4}
-    //       display={"flex"}
-    //       justifyContent={"center"}
-    //       alignItems={"center"}
-    //       mt={10}
-    //       key={product._id}
-    //     >
-    //       <Card
-    //         sx={{
-    //           maxWidth: 345,
-    //           width: "100%",
-    //           height: 350,
-    //         }}
-    //       >
-    //         <CardMedia>
-    //
-    //         </CardMedia>
-
-    //         <CardContent sx={{ textAlign: "center" }}>
-    //           <Typography
-    //             variant="h5"
-    //             component="div"
-    //             textAlign={"right"}
-    //             pt={2}
-    //           >
-    //             <Link
-    //               href={`/products/${product._id}`}
-    //               target="_blank"
-    //               style={{ textDecoration: "none", color: "#4b4747" }}
-    //             >
-    //               {product.name}
-    //             </Link>
-    //           </Typography>
-    //           <Typography
-    //             variant="body2"
-    //             textAlign={"left"}
-    //             pt={4}
-    //             fontWeight={"bold"}
-    //           >
-    //             قیمت{"   "}
-    //             {product.price}
-    //             {"   "}تومان
-    //           </Typography>
-    //         </CardContent>
-    //       </Card>
-    //     </Grid>
   );
 };
 
