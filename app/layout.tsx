@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
+"use client";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 
-const inter = Vazirmatn({ subsets: ["arabic", "latin"] });
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
-export const metadata: Metadata = {
-  title: "Phone Shop",
-  description: "Phone Shop",
-};
+const inter = Vazirmatn({ subsets: ["arabic", "latin"] });
 
 export default function RootLayout({
   children,
@@ -15,11 +12,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-        <script src="https://cdn.tailwindcss.com"></script>
-      </body>
-    </html>
+    <HelmetProvider>
+      <Helmet>
+        <title>Phone Shop</title>
+      </Helmet>
+      <html lang="en">
+        <body className={inter.className}>{children}</body>
+      </html>
+    </HelmetProvider>
   );
 }
