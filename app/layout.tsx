@@ -1,10 +1,8 @@
 "use client";
-import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-const inter = Vazirmatn({ subsets: ["arabic", "latin"] });
 
 export default function RootLayout({
   children,
@@ -17,7 +15,7 @@ export default function RootLayout({
         <title>Phone Shop</title>
       </Helmet>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body>{children}</body>
       </html>
     </HelmetProvider>
   );

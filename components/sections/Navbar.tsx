@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <section className="flex justify-between items-center bg-gray-400 w-full h-12">
       <div className="pl-2 text-xl">
-        <Link href="/" style={{ textDecoration: "none", color: "black" }}>
+        <Link href="/" className="text-black ">
           <FaPhoneAlt />{" "}
         </Link>
       </div>
@@ -17,7 +17,8 @@ const Navbar = () => {
           type="text"
           name=""
           id=""
-          className="border-b border-b-black bg-gray-400   focus:outline-none"
+          placeholder="جستوجو"
+          className="border-b border-b-black bg-gray-400 placeholder-black text-right mr-2 caret-slate-700 focus:outline-none"
         />
         <FaSearch className="cursor-pointer" />
       </div>
