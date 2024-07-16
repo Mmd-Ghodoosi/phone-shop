@@ -16,15 +16,28 @@ export const getProduct = (id) => {
   return axios.get(url);
 };
 
-// @desc POST Product
+// @desc POST addToCart
 // @route POST http://localhost:3009/card/addToCart/
 export const addToCart = (body) => {
   const url = `${SERVER_URL}/cart/addToCart`;
   return axios.post(url, body);
 };
-// @desc DELETE Product
+// @desc DELETE dataFromCart
 // @route DELETE http://localhost:3009/cart/removeDataFromCart/:id
 export const removeDataFromCart = (productId) => {
   const url = `${SERVER_URL}/cart/removeDataFromCart/:${productId}`;
   return axios.delete(url);
+};
+
+// @desc SignUp User
+// @route SignUp http://localhost:3009/users/signup
+export const SignUpUser = (body) => {
+  const url = `${SERVER_URL}/users/signup`;
+  return axios.post(url, body);
+};
+// @desc SignIn User
+// @route SignIn http://localhost:3009/users/signin
+export const SignInUser = (body) => {
+  const url = `${SERVER_URL}/users/signin`;
+  return axios.post(url, body);
 };
