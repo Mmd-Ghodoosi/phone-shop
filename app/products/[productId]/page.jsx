@@ -6,12 +6,11 @@ import { getProduct } from "@/constant/service";
 import { addToCart } from "../../../constant/service";
 
 import { Helmet } from "react-helmet-async";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 import Loading from "../../../components/sections/Loading";
 import Navbar from "@/components/sections/Navbar";
 
-import "react-toastify/dist/ReactToastify.css";
 
 const SingleProduct = ({ params }) => {
   const [product, setProduct] = useState({});
@@ -67,7 +66,6 @@ const SingleProduct = ({ params }) => {
   };
   return (
     <>
-      <ToastContainer rtl={true} position="top-center" />
       <Navbar />
       <Helmet>
         <title>{product.name}</title>
