@@ -8,26 +8,30 @@ import { Form, Formik, ErrorMessage, Field } from "formik";
 import { userSigninSchema } from "@/components/validation/userValidation";
 
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 const SignInPage = () => {
   const router = useRouter();
 
   const SignIn = async (values) => {
     try {
-      const { status } = await SignInUser(values);
+      const { status, data } = await SignInUser(values);
       if (status === 201) {
-        const expirationInSeconds = 86400;//24 hours
+        const expirationInSeconds = 86400; //24 hours
         const expirationDate = new Date(
           new Date().getTime() + expirationInSeconds * 1000
         );
         Cookies.set("session", process.env.NEXT_PUBLIC_TOKEN, {
           expires: expirationDate,
         });
+        Cookies.set("userId", data.id, {
+          expires: expirationDate,
+        });
 
         router.push("/");
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.message);
     }
   };
 

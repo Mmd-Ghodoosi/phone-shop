@@ -41,3 +41,9 @@ export const SignInUser = (body) => {
   const url = `${SERVER_URL}/users/signin`;
   return axios.post(url, body);
 };
+// @desc GET A User
+// @route GET A User http://localhost:3009/users/findAUser/:id
+export const findAUser = (userId) => {
+  const url = `${SERVER_URL}/users/findAUser/${userId}`;
+  return axios.get(url);
+};

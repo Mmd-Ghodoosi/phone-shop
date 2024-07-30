@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import Cookies from "js-cookie";
 
@@ -9,19 +10,37 @@ import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 
+import { findAUser } from "@/constant/service";
+import { toast } from "react-toastify";
+
 const Navbar = () => {
+  const router = useRouter();
+
+  const [user, setUser] = useState<any>("");
   const [token, setToken] = useState<string>("");
   const [menu, setMenu] = useState<boolean>(false);
 
-  
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        if (Cookies.get("userId")) {
+          const { data } = await findAUser(Cookies.get("userId"));
+          setUser(data);
+        }
+      } catch (error) {
+        toast.error("مشکلی پیش امده");
+      }
+    };
+    fetchUser();
     const session = Cookies.get("session");
     session ? setToken(session) : null;
   }, []);
 
   const handleLogout = () => {
-    Cookies.remove("session");
-    window.location.reload();
+    router.push("/");
+      Cookies.remove("session");
+      Cookies.remove("userId");
+      window.location.reload();
   };
 
   return (
@@ -63,7 +82,8 @@ const Navbar = () => {
                   {/* profile link inside dropdown */}
                   <li>
                     <a
-                      href="/profile/:id"
+                      href={`/users/profile/${user.id}`}
+                      target="_blank"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       پروفایل
