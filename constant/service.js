@@ -47,3 +47,9 @@ export const findAUser = (userId) => {
   const url = `${SERVER_URL}/users/findAUser/${userId}`;
   return axios.get(url);
 };
+// @desc UPDATE A User
+// @route UPDATE A User http://localhost:3009/users/editUser/:id
+export const EditUser = (body, userId) => {
+  const url = `${SERVER_URL}/users/editUser/${userId}`;
+  return axios.put(url, body);
+};

@@ -10,20 +10,20 @@ import { Helmet } from "react-helmet-async";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
-const page = () => {
-  const router=useRouter();
+const Profile = ({ params }) => {
+  const router = useRouter();
   const [user, setUser] = useState("");
   useEffect(() => {
     const fetchUser = async () => {
       try {
         if (Cookies.get("userId")) {
-          const { data } = await findAUser(Cookies.get("userId"));
+          const { data } = await findAUser(params.userId);
           setUser(data);
         } else {
           router.push("/");
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
         toast.error("مشکلی پیش امده");
       }
     };
@@ -48,7 +48,7 @@ const page = () => {
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
               <td className="px-6 py-4">
                 <Link
-                  href={`users/resetPassword/${user.id}`}
+                  href={`/users/resetPassword/${params.userId}`}
                   target="_blank"
                   className="text-gray-900 bg-red-500 px-4 py-2 whitespace-nowrap dark:text-white   hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm text-center"
                 >
@@ -67,4 +67,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Profile;

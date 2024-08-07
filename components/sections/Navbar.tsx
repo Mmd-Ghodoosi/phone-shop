@@ -35,12 +35,12 @@ const Navbar = () => {
     const session = Cookies.get("session");
     session ? setToken(session) : null;
   }, []);
-
+  
   const handleLogout = () => {
     router.push("/");
-      Cookies.remove("session");
-      Cookies.remove("userId");
-      window.location.reload();
+    Cookies.remove("session");
+    Cookies.remove("userId");
+    window.location.reload();
   };
 
   return (
@@ -82,7 +82,7 @@ const Navbar = () => {
                   {/* profile link inside dropdown */}
                   <li>
                     <a
-                      href={`/users/profile/${user.id}`}
+                      href={`/users/profile/${Cookies.get('userId')}`}
                       target="_blank"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
