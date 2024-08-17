@@ -7,10 +7,10 @@ import { addToCart } from "../../../constant/service";
 
 import { Helmet } from "react-helmet-async";
 import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 
 import Loading from "../../../components/sections/Loading";
 import Navbar from "@/components/sections/Navbar";
-
 
 const SingleProduct = ({ params }) => {
   const [product, setProduct] = useState({});
@@ -37,9 +37,13 @@ const SingleProduct = ({ params }) => {
 
   const AddToCart = async (values) => {
     try {
-      const { status, data } = await addToCart(values);
-      if (status === 201) {
-        toast.success("به سبد خرید اضافه شد ");
+      if (Cookies.get("userId")) {
+        const { status } = await addToCart(values);
+        if (status === 201) {
+          toast.success("به سبد خرید اضافه شد ");
+        }
+      } else {
+        toast.error("وارد سایت شوید");
       }
     } catch (error) {
       console.log(error);
@@ -131,6 +135,7 @@ const SingleProduct = ({ params }) => {
                   colors: color,
                   description: product.description,
                   picture: product.picture,
+                  email: Cookies.get("email"),
                 });
               }}
               type="submit"

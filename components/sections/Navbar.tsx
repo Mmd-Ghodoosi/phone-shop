@@ -40,7 +40,9 @@ const Navbar = () => {
     router.push("/");
     Cookies.remove("session");
     Cookies.remove("userId");
-    window.location.reload();
+    if(window.location.href === "/"){
+      window.location.reload();
+    }
   };
 
   return (

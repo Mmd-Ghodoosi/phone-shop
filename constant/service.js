@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookie from 'js-cookie'
 
 const SERVER_URL = "http://localhost:3009";
 
@@ -52,4 +53,10 @@ export const findAUser = (userId) => {
 export const EditUser = (body, userId) => {
   const url = `${SERVER_URL}/users/editUser/${userId}`;
   return axios.put(url, body);
+};
+// @desc GET Cart
+// @route GET Cart http://localhost:3009/cart/findCartData?email
+export const GetCart = () => {
+  const url = `${SERVER_URL}/cart/findCartData?email=${Cookie.get("email")}`;
+  return axios.get(url);
 };

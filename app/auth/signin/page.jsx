@@ -27,6 +27,9 @@ const SignInPage = () => {
         Cookies.set("userId", data.id, {
           expires: expirationDate,
         });
+        Cookies.set("email", data.email, {
+          expires: expirationDate,
+        });
 
         router.push("/");
       }
