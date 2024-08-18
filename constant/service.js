@@ -17,18 +17,6 @@ export const getProduct = (id) => {
   return axios.get(url);
 };
 
-// @desc POST addToCart
-// @route POST http://localhost:3009/card/addToCart/
-export const addToCart = (body) => {
-  const url = `${SERVER_URL}/cart/addToCart`;
-  return axios.post(url, body);
-};
-// @desc DELETE dataFromCart
-// @route DELETE http://localhost:3009/cart/removeDataFromCart/:id
-export const removeDataFromCart = (productId) => {
-  const url = `${SERVER_URL}/cart/removeDataFromCart/:${productId}`;
-  return axios.delete(url);
-};
 
 // @desc SignUp User
 // @route SignUp http://localhost:3009/users/signup
@@ -54,9 +42,24 @@ export const EditUser = (body, userId) => {
   const url = `${SERVER_URL}/users/editUser/${userId}`;
   return axios.put(url, body);
 };
+
+
+// @desc POST addToCart
+// @route POST http://localhost:3009/card/addToCart/
+export const addToCart = (body) => {
+  const url = `${SERVER_URL}/cart/addToCart`;
+  return axios.post(url, body);
+};
+
 // @desc GET Cart
 // @route GET Cart http://localhost:3009/cart/findCartData?email
 export const GetCart = () => {
   const url = `${SERVER_URL}/cart/findCartData?email=${Cookie.get("email")}`;
   return axios.get(url);
+};
+// @desc DELETE Data From Cart
+// @route DELETE Cart http://localhost:3009/cart/removeDataFromCart/:id
+export const DeleteDataCart = (id) => {
+  const url = `${SERVER_URL}/cart/removeDataFromCart/${id}`;
+  return axios.delete(url);
 };
