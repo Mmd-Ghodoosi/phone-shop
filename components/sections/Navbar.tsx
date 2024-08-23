@@ -1,4 +1,4 @@
-"use client";
+
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -35,12 +35,13 @@ const Navbar = () => {
     const session = Cookies.get("session");
     session ? setToken(session) : null;
   }, []);
-  
+
   const handleLogout = () => {
     router.push("/");
     Cookies.remove("session");
     Cookies.remove("userId");
-    if(window.location.href === "/"){
+    setToken("")
+    if (window.location.href === "/") {
       window.location.reload();
     }
   };
@@ -84,7 +85,7 @@ const Navbar = () => {
                   {/* profile link inside dropdown */}
                   <li>
                     <a
-                      href={`/users/profile/${Cookies.get('userId')}`}
+                      href={`/users/profile/${Cookies.get("userId")}`}
                       target="_blank"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
